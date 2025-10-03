@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+  
+  * {
+    cursor: none;
+  }
+  
+  button, a {
+    cursor: none;
+  }
+  
+  body {
+    background-color: #010A13;
+    color: #F0E6D2;
+    font-family: 'Spiegel', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  ::selection {
+    background-color: #0BC5EA;
+    color: #010A13;
+  }
+}
+
+@layer utilities {
+  .hextech-glow {
+    box-shadow: 0 0 20px rgba(11, 197, 234, 0.5), 0 0 40px rgba(11, 197, 234, 0.3);
+  }
+  
+  .gold-glow {
+    box-shadow: 0 0 20px rgba(200, 170, 110, 0.5), 0 0 40px rgba(200, 170, 110, 0.3);
+  }
+  
+  .hextech-border {
+    border: 2px solid transparent;
+    background: linear-gradient(#1E2328, #1E2328) padding-box,
+                linear-gradient(135deg, #0BC5EA, #C8AA6E) border-box;
+  }
+  
+  .glass-morphism {
+    background: rgba(30, 35, 40, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(11, 197, 234, 0.2);
+  }
+  
+  .ability-cooldown {
+    animation: cooldown 2s ease-in-out;
+  }
+  
+  @keyframes cooldown {
+    0% {
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    }
+    100% {
+      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 100%);
+    }
+  }
+  
+  .particle-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  .shimmer {
+    animation: shimmer 3s infinite linear;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(11, 197, 234, 0.3) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+  }
+}
